@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+    <a href="{% url 'add_book' %}">Добавить книгу</a><br><br>
+    <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'books' %}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <!-- Добавьте ссылки для сортировки -->
+    <a href="?sort=title">Сортировать по названию</a>
+    <a href="?sort=author">Сортировать по автору</a>
+    <a href="?sort=copies">Сортировать по количеству экземпляров</a>
+    <h3>Список книг: </h3>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }}, {{ book.author }}, {{ book.publication_year }}, {{ book.publisher }}, {{ book.num_pages }} страниц.<br>
+                Осталось {{ book.num_copies }} штук(и). <a href="{% url 'edit_book' book.id %}">Изменить</a> <a href="{% url 'delete_book' book.id %}">Удалить</a> <br><br>
+        {% endfor %}
+    </ul>
+{% endblock %}

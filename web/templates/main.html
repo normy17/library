@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+<a href="{% url 'books' %}">Работа с книгами</a> |
+<a href="{% url 'visitors' %}">Работа с посетителями</a> |
+<a href="{% url 'cards' %}">Работа с карточками</a> |
+<a href="{% url 'statistic' %}">Статистика</a> <br> <br> <br>
+</nav>
+{% block content %}{% endblock %}
+</body>
+</html>

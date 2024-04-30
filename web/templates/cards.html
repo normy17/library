@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% block content %}
+<a href="{% url 'close_card' %}">Закрыть карточку</a><br><br>
+<h3>Книги доступные для выдачи:</h3><br>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} <a href="{% url 'create_card' book.id %}">Выбрать книгу</a><br>
+                Осталось {{ book.num_copies }} штук(и).
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block content %}
+<h3>Открытые карточки:</h3>
+    <ul>
+        {% for card in open_cards %}
+            <li>{{ card.visitor }}, {{ card.book }} <br> дата выдачи: {{ card.borrowed_date }} <a href="{% url 'close_card_2' card.id %}">Закрыть карточку</a><br>
+        {% endfor %}
+    </ul>
+<h3>Закрытые карточки:</h3>
+    <ul>
+        {% for card in close_cards %}
+            <li>{{ card.visitor }}, {{ card.book }} <br> дата выдачи: {{ card.borrowed_date }}, дата возврата: {{ card.returned_date }}
+        {% endfor %}
+    </ul>
+{% endblock %}

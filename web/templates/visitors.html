@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+{% block content %}
+    <a href="{% url 'add_visitor' %}">Добавить посетителя</a><br><br>
+    <h3>Список посетителей: </h3>
+    <ul>
+        {% for visitor in visitors %}
+            <li>{{ visitor.full_name }}, {{ visitor.phone }} <a href="{% url 'edit_visitor' visitor.id %}">Изменить</a> <br><br>
+        {% endfor %}
+    </ul>
+{% endblock %}

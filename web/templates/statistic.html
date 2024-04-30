@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block content %}
+    <h3>Топ-5 самых популярных книг:</h3>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }}, {{ book.author }}, {{ book.publication_year }}<br>
+        {% endfor %}
+    </ul>
+    <h3>Топ-5 самых активных посетителей:</h3>
+    <ul>
+        {% for visitor in visitors %}
+            <li>{{ visitor.full_name }}, {{ visitor.phone }}<br>
+        {% endfor %}
+    </ul>
+{% endblock %}
