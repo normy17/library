@@ -1,12 +1,11 @@
 {% extends 'main.html' %}
 {% block content %}
     <a href="{% url 'add_book' %}">Добавить книгу</a><br><br>
-    <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'books' %}">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form method="GET" action="{% url 'books' %}">
+        <input type="search" placeholder="Search" aria-label="Search" name="q">
+        <button type="submit">Поиск</button>
     </form>
 
-    <!-- Добавьте ссылки для сортировки -->
     <a href="?sort=title">Сортировать по названию</a>
     <a href="?sort=author">Сортировать по автору</a>
     <a href="?sort=copies">Сортировать по количеству экземпляров</a>
